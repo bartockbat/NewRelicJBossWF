@@ -17,3 +17,7 @@ After getting the above, then proceed with the below
 
 6. The parameter -Dnewrelic.config.license_key=xxxxxxxxxxxx - this will be the license key string that you get from Newrelic's web site / your account.
 7. The parameter  -Dnewrelic.config.app_name=RunicRelic - I chose RunicRelic - however, you can name this application a name of your choice - it is the one that will show up on Newrelic's web page in your account/monitoring space 
+8. The port mappings (-p 8080 and 9990) will allow you to vefiy that Wildfly is running in your container - just got to http://localhost:8080 and you will see the interface. If you see the interface, then it is up and running properly
+9. Once you verify that Wildfly is up and running, proceed to your account page on Newrelic and view your application monitoring page
+
+For assistance on either one of the applications, please refer to http://wildfly.org/ and/or https://newrelic.com/support
