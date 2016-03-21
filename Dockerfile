@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/rhel7.1:latest
+FROM registry.access.redhat.com/rhel7:latest
 MAINTAINER Glen M <gmillard@redhat.com>
 
 # Execute system update
