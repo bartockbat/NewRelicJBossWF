@@ -7,6 +7,11 @@ RUN yum -y update && yum clean all
 RUN yum -y install java-1.8.0-openjdk.x86_64
 RUN yum -y install unzip curl tar && yum clean all
 
+LABEL Name NewRelic
+LABEL Vendor NewRelic
+LABEL Release Fly
+LABEL Version OSS
+
 # Create a user and group used to launch processes
 # The user ID 1000 is the default for the first "regular" user on Fedora/RHEL,
 # so there is a high chance that this ID will be equal to the current user
@@ -43,3 +48,6 @@ RUN ["unzip", "/newrelic-java-3.17.0.zip", "-d", "/opt/jboss/wildfly/"]
 # This will boot WildFly in the standalone mode and bind to all interface
 USER jboss
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+
+#Atomic Run
+LABEL RUN /usr/bin/docker run -d IMAGE
