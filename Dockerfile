@@ -1,5 +1,5 @@
 FROM registry.access.redhat.com/rhel7.2:latest
-MAINTAINER Glen M <gmillard@redhat.com>
+MAINTAINER Redhat
 
 # Execute system update
 RUN yum -y update && yum clean all
