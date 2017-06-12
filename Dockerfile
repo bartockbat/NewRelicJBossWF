@@ -2,15 +2,21 @@ FROM registry.access.redhat.com/rhel7.2:latest
 MAINTAINER Redhat
 
 # Execute system update
-RUN yum -y update && yum clean all
-
 RUN yum -y install java-1.8.0-openjdk.x86_64
-RUN yum -y install unzip curl tar && yum clean all
+RUN yum -y install unzip wget curl tar && yum clean all
 
-LABEL Name NewRelic
-LABEL Vendor NewRelic
-LABEL Release Fly
-LABEL Version OSS
+RUN yum -y update-minimal --disablerepo "*" --enablerepo rhel-7-server-rpms --setopt=tsflags=nodocs \
+      --security --sec-severity=Important --sec-severity=Critical 
+
+
+LABEL name="rhel72/newrelic" \
+      vendor="NewRelic_Software" \
+      version="WildFly_OSS" \
+      release="3.39.1" 
+
+#Atomic help file
+
+COPY help.1 /help.1
 
 # Create a user and group used to launch processes
 # The user ID 1000 is the default for the first "regular" user on Fedora/RHEL,
@@ -40,8 +46,10 @@ EXPOSE 8080 9990
 # install new relic java agent
 #USER root
 USER jboss
-ADD newrelic-java-3.17.0.zip /
-RUN ["unzip", "/newrelic-java-3.17.0.zip", "-d", "/opt/jboss/wildfly/"]
+
+RUN curl -O "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java-3.39.1.zip"
+#ADD newrelic-java-3.17.0.zip /
+RUN ["unzip", "newrelic-java-3.39.1.zip", "-d", "/opt/jboss/wildfly/"]
 #RUN cp -p /opt/newrelic/newrelic.yml /opt/newrelic/newrelic.yml.original
 
 # Set the default command to run on boot
