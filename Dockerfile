@@ -12,7 +12,7 @@ RUN yum -y update-minimal --disablerepo "*" --enablerepo rhel-7-server-rpms --se
 LABEL name="rhel72/newrelic" \
       vendor="NewRelic_Software" \
       version="WildFly_OSS" \
-      release="3.39.1" 
+      release="CurrentRelease" 
 
 #Atomic help file
 
