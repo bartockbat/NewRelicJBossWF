@@ -50,7 +50,7 @@ EXPOSE 8080 9990
 #USER root
 USER jboss
 
-RUN curl -O "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java-3.39.1.zip"
+RUN curl -O "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip"
 #ADD newrelic-java-3.17.0.zip /
 RUN ["unzip", "newrelic-java-3.39.1.zip", "-d", "/opt/jboss/wildfly/"]
 #RUN cp -p /opt/newrelic/newrelic.yml /opt/newrelic/newrelic.yml.original
