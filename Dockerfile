@@ -18,6 +18,9 @@ LABEL name="rhel72/newrelic" \
 
 COPY help.1 /help.1
 
+### add licenses to this directory
+COPY licenses /licenses
+
 # Create a user and group used to launch processes
 # The user ID 1000 is the default for the first "regular" user on Fedora/RHEL,
 # so there is a high chance that this ID will be equal to the current user
