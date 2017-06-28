@@ -18,7 +18,8 @@ LABEL name="rhel72/newrelic" \
 
 COPY help.1 /help.1
 
-### add licenses to this directory
+### add licenses to this directory satisfy the cert scan for license
+RUN mkdir -p /licenses
 COPY licenses /licenses
 
 # Create a user and group used to launch processes
