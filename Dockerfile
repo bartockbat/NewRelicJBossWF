@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/rhel7.2:latest
+FROM registry.access.redhat.com/rhel7.3:latest
 MAINTAINER Redhat
 
 # Execute system update
