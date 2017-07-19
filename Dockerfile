@@ -15,7 +15,6 @@ LABEL name="wildfly/java-agent" \
       release="CurrentRelease" 
 
 #Atomic help file
-
 COPY help.1 /help.1
 
 ### add licenses to this directory satisfy the cert scan for license
@@ -48,13 +47,12 @@ ENV JBOSS_HOME /opt/jboss/wildfly
 EXPOSE 8080 9990
 
 # install new relic java agent
-#USER root
 USER jboss
 
 RUN curl -O "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip"
-#ADD newrelic-java-3.17.0.zip /
+
+#ADD newrelic-java
 RUN ["unzip", "newrelic-java.zip", "-d", "/opt/jboss/wildfly/"]
-#RUN cp -p /opt/newrelic/newrelic.yml /opt/newrelic/newrelic.yml.original
 
 # Set the default command to run on boot
 # This will boot WildFly in the standalone mode and bind to all interface
