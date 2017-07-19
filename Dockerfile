@@ -9,7 +9,7 @@ RUN yum -y update-minimal --disablerepo "*" --enablerepo rhel-7-server-rpms --se
       --security --sec-severity=Important --sec-severity=Critical 
 
 
-LABEL name="rhel72/newrelic" \
+LABEL name="wildfly/java-agent" \
       vendor="NewRelic_Software" \
       version="WildFly_OSS" \
       release="CurrentRelease" 
